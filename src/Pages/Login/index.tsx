@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { setCounterAsync } from "../../Config/Store/Slices/appState";
 import { useEffect } from "react";
+import { doPOST } from "../../Helpers/apiHelper";
+import APIConstants from "../../Constants/apiConstants";
 
 const Login = (props : any) => {
     
@@ -8,6 +10,7 @@ const Login = (props : any) => {
 
     useEffect(() => {
         setCounter()
+        doPOST(APIConstants.sampleEndPoint,{})
     },[])
     
     return <>
