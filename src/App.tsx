@@ -2,16 +2,20 @@ import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import router from "./Config/Routes";
 import store from "./Config/Store";
-import "./Config/i18n"
+import { ThemeProvider } from "@mui/material/styles";
+import "./Config/i18n";
+import Layout from "./Pages/Layout";
+import theme from "./theme";
 
 function App() {
   return (
-    <>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </>
-
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Layout>
+          <RouterProvider router={router} />
+        </Layout>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
